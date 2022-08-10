@@ -1,8 +1,9 @@
-name: Build Release
-
 on:
-  workflow_dispatch:
+  push: # 每次带有 tag 的 push 候触发
+    tags:
+      - 'v*'
 
+name: Build Release
 jobs:
   release:
     runs-on: ubuntu-latest
@@ -17,6 +18,7 @@ jobs:
       - name: Release
         uses: softprops/action-gh-release@v1
         with: # 将下述可执行文件 release 上去
+          draft: false # Release草稿
           files: |
             dist/nf_darwin_amd64
             dist/nf_darwin_arm64
