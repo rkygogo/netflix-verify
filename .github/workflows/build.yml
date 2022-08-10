@@ -17,7 +17,6 @@ jobs:
       - name: Release
         uses: softprops/action-gh-release@v1
         with: # 将下述可执行文件 release 上去
-          draft: false # Release草稿
           files: |
             dist/nf_darwin_amd64
             dist/nf_darwin_arm64
