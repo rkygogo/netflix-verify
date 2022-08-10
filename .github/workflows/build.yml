@@ -1,7 +1,7 @@
 on:
   push: # 每次带有 tag 的 push 候触发
     tags:
-      - 'v*' 
+      - 'v66' 
 
 name: Build Release
 jobs:
