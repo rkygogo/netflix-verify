@@ -1,9 +1,8 @@
-on:
-  push: # 每次带有 tag 的 push 候触发
-    tags:
-      - 'v*'
-
 name: Build Release
+
+on:
+  workflow_dispatch:
+
 jobs:
   release:
     runs-on: ubuntu-latest
