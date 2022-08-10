@@ -1,5 +1,5 @@
 on:
-   push: # 每次带有 tag 的 push 候触发
+  push: # 每次带有 tag 的 push 候触发
     tags:
       - 'v*'
 
