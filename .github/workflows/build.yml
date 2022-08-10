@@ -7,24 +7,27 @@ on:
 name: Build Release
 jobs:
   release:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
+    outputs:
+      upload_url: ${{ steps.create_release.outputs.upload_url }}
     steps:
-      - uses: actions/checkout@master # checkout 代码
-      - uses: actions/setup-go@v2 # 配置 Go 环境
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          go-version: "1.18" # 改成自己的版本
-
+          tag_name: ${{ github.ref }}
+          release_name: ${{ github.ref }}
+          draft: true
       - run: bash .cross_compile.sh
 
       - name: Release
         uses: actions/upload-release-asset@v1
         with: # 将下述可执行文件 release 上去
-          draft: true # Release草稿
           files: |
             dist/nf_darwin_amd64
             dist/nf_darwin_arm64
             dist/nf_linux_amd64
             dist/nf_linux_arm64
             dist/nf_linux_mips
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
