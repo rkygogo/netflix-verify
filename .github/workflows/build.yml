@@ -1,4 +1,7 @@
 on: 
+  push:
+    tags:
+      - 0.*
   workflow_dispatch:
 
 name: Build Release
@@ -14,9 +17,9 @@ jobs:
       - run: bash .cross_compile.sh
 
       - name: Release
-        uses: pixta-dev/repository-mirroring-action@v1
+        uses: actions/upload-release-asset@v1
         with: # 将下述可执行文件 release 上去
-          draft: false # Release草稿
+          draft: true # Release草稿
           files: |
             dist/nf_darwin_amd64
             dist/nf_darwin_arm64
