@@ -33,28 +33,28 @@ func printResult(ipVersion string, vResponse verify.VerifyResponse) {
 	fmt.Printf("[IPv%s]\n", ipVersion)
 	switch code := vResponse.StatusCode; {
 	case code < -1:
-		fmt.Println(RED_PREFIX + "网络可能没有正常配置IPv" + ipVersion + "，或者没有IPv" + ipVersion + "网络接入" + RESET_PREFIX)
-		fmt.Println(CYAN_PREFIX + "IP地域信息：" + vResponse.CountryName + RESET_PREFIX)
+		fmt.Println("网络可能没有正常配置IPv" + ipVersion + "，或者没有IPv" + ipVersion + "网络接入")
+		fmt.Println(vResponse.CountryName)
 	case code == -1:
-		fmt.Println(RED_PREFIX + "Netflix在出口IP所在的国家不提供服务" + RESET_PREFIX)
-		fmt.Println(CYAN_PREFIX + "IP地域信息：" + vResponse.CountryName + RESET_PREFIX)
+		fmt.Println("Netflix在出口IP所在的国家不提供服务")
+		fmt.Println(vResponse.CountryName)
 	case code == 0:
-		fmt.Println(RED_PREFIX + "Netflix在出口IP所在的国家提供服务，但是您的IP疑似代理，无法正常使用服务" + RESET_PREFIX)
-		fmt.Println(CYAN_PREFIX + "IP地域信息：" + vResponse.CountryName + RESET_PREFIX)
+		fmt.Println("Netflix在出口IP所在的国家提供服务，但是您的IP疑似代理，无法正常使用服务")
+		fmt.Println(vResponse.CountryName)
 	case code == 1:
-		fmt.Println(YELLOW_PREFIX + "出口IP可以使用Netflix，但仅可看Netflix自制剧" + RESET_PREFIX)
-		fmt.Println(CYAN_PREFIX + "IP地域信息：" + vResponse.CountryName + RESET_PREFIX)
+		fmt.Println("出口IP可以使用Netflix，但仅可看Netflix自制剧")
+		fmt.Println(vResponse.CountryName)
 	case code == 2:
-		fmt.Println(GREEN_PREFIX + "出口IP完整解锁Netflix，支持非自制剧的观看" + RESET_PREFIX)
-		fmt.Println(CYAN_PREFIX + "IP地域信息：" + vResponse.CountryName + RESET_PREFIX)
+		fmt.Println("出口IP完整解锁Netflix，支持非自制剧的观看")
+		fmt.Println(vResponse.CountryName)
 	case code == 3:
-		fmt.Println(YELLOW_PREFIX + "出口IP无法观看此电影" + RESET_PREFIX)
-		fmt.Println(CYAN_PREFIX + "IP地域信息：" + vResponse.CountryName + RESET_PREFIX)
+		fmt.Println("出口IP无法观看此电影")
+		fmt.Println(vResponse.CountryName)
 	case code == 4:
-		fmt.Println(GREEN_PREFIX + "出口IP可以观看此电影" + RESET_PREFIX)
-		fmt.Println(CYAN_PREFIX + "IP地域信息：" + vResponse.CountryName + RESET_PREFIX)
+		fmt.Println("出口IP可以观看此电影")
+		fmt.Println(vResponse.CountryName)
 	default:
-		fmt.Println(YELLOW_PREFIX + "解锁检测失败，请稍后重试" + RESET_PREFIX)
-		fmt.Println(CYAN_PREFIX + "IP地域信息：" + vResponse.CountryName + RESET_PREFIX)
+		fmt.Println("解锁检测失败，请稍后重试")
+		fmt.Println(vResponse.CountryName)
 	}
 }
