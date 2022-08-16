@@ -33,7 +33,7 @@ func printResult(ipVersion string, vResponse verify.VerifyResponse) {
 	fmt.Printf("[IPv%s]\n", ipVersion)
 	switch code := vResponse.StatusCode; {
 	case code < -1:
-		fmt.Println("网络可能没有正常配置IPv" + ipVersion + "，或者没有IPv" + ipVersion + "网络接入")
+		fmt.Println("检测到网络读取有问题，再次进入脚本可能就好了")
 		fmt.Println(vResponse.CountryName)
 	case code == -1:
 		fmt.Println("Netflix在出口IP所在的国家不提供服务")
