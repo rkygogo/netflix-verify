@@ -36,16 +36,16 @@ func printResult(ipVersion string, vResponse verify.VerifyResponse) {
 		fmt.Println("检测到网络读取有问题，再次进入脚本可能就好了")
 		fmt.Println(vResponse.CountryName)
 	case code == -1:
-		fmt.Println("Netflix在出口IP所在的国家不提供服务")
+		fmt.Println("当前所在的国家不提供Netflix服务")
 		fmt.Println(vResponse.CountryName)
 	case code == 0:
-		fmt.Println("Netflix在出口IP所在的国家提供服务，但是您的IP疑似代理，无法正常使用服务")
+		fmt.Println("当前所在的国家提供Netflix服务，但是您的IP疑似代理，无法正常使用服务")
 		fmt.Println(vResponse.CountryName)
 	case code == 1:
-		fmt.Println("出口IP可以使用Netflix，但仅可看Netflix自制剧")
+		fmt.Println("可以使用Netflix，但仅可看Netflix自制剧")
 		fmt.Println(vResponse.CountryName)
 	case code == 2:
-		fmt.Println("出口IP完整解锁Netflix，支持非自制剧的观看")
+		fmt.Println("完整解锁Netflix，支持非自制剧的观看")
 		fmt.Println(vResponse.CountryName)
 	case code == 3:
 		fmt.Println("出口IP无法观看此电影")
