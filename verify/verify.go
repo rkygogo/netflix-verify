@@ -45,7 +45,6 @@ type VerifyResponse struct {
 type UnblockTestResult struct {
 	movieID     int
 	CountryCode string
-   
 	err         error
 }
 
