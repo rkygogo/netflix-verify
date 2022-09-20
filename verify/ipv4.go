@@ -3,7 +3,7 @@ package verify
 import (
 	"strconv"
 
-	"github.com/rkygogo/netflix-verify/util"
+	"github.com/sjlleo/netflix-verify/util"
 )
 
 type IPv4Verifier struct {
