@@ -8,7 +8,7 @@ TARGET_DIR="dist"
 PLATFORMS="darwin/amd64 darwin/arm64 linux/amd64 linux/arm64 linux/mips"
 
 rm -rf ${TARGET_DIR}
-mkdir ${TARGET_DIR}
+mkdir ${TARGET_DIR} 
 
 for pl in ${PLATFORMS}; do
     export GOOS=$(echo ${pl} | cut -d'/' -f1)
