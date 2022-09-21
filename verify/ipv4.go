@@ -36,7 +36,6 @@ func (v *IPv4Verifier) Execute() *VerifyResponse {
 			v.unblockStatus = CustomMovieBlock
 		}
 	}
-	return &response
 }
 
 func (v *IPv4Verifier) upgradeStatus(status int) {
