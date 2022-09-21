@@ -1,7 +1,6 @@
 package verify
 
 import (
-	"strconv"
 
 	"github.com/sjlleo/netflix-verify/util"
 )
@@ -35,6 +34,7 @@ func (v *IPv4Verifier) Execute() *VerifyResponse {
 		} else {
 			v.unblockStatus = CustomMovieBlock
 		}
+	return &response
 	}
 
 func (v *IPv4Verifier) upgradeStatus(status int) {
