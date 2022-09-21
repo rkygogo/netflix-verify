@@ -16,12 +16,12 @@ type IPv6Verifier struct {
 func (v *IPv6Verifier) Execute() *VerifyResponse {
 	var err error
 	var response VerifyResponse			
-		if res.CountryCode != "" {
-			v.unblockStatus = AreaUnavailable
-			response.CountryCode = res.CountryCode
-			response.CountryName = util.CountryCodeToCountryName(res.CountryCode)
-			return &response
-		}
+	v.unblockStatus = AreaUnavailable
+	if res.CountryCode != "" {
+	response.CountryCode = res.CountryCode
+	response.CountryName = util.CountryCodeToCountryName(res.CountryCode)
+	return &response
+	}
 	
 	
 
