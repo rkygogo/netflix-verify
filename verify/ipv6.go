@@ -36,7 +36,6 @@ func (v *IPv6Verifier) Execute() *VerifyResponse {
 			v.unblockStatus = CustomMovieBlock
 		}
 	}
-}
 
 func (v *IPv6Verifier) upgradeStatus(status int) {
 	if v.unblockStatus < status {
