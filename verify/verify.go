@@ -40,12 +40,14 @@ type VerifyResponse struct {
 	StatusCode  int
 	CountryCode string
 	CountryName string
-        err         error
+     
 }
 
 type UnblockTestResult struct {
 	movieID     int
 	CountryCode string
+	CountryName string
+	err         error
 }
 
 func NewVerify(c Config) *FinalResult {
