@@ -15,14 +15,12 @@ type IPv6Verifier struct {
 
 func (v *IPv6Verifier) Execute() *VerifyResponse {
 	var err error
-	var response VerifyResponse			
+	var response VerifyResponse
 	v.unblockStatus = AreaUnavailable
-	
-	
-	
+	response.Type = 2
 
 	if v.IP, err = util.DnsResolver(6); err != nil {
-		response.StatusCode = NetworkUnrachable		
+		response.StatusCode = NetworkUnrachable
 		return &response
 	}
 
