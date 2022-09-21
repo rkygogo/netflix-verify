@@ -17,11 +17,7 @@ func (v *IPv6Verifier) Execute() *VerifyResponse {
 	var err error
 	var response VerifyResponse			
 	v.unblockStatus = AreaUnavailable
-	if res.CountryCode != "" {
-	response.CountryCode = res.CountryCode
-	response.CountryName = util.CountryCodeToCountryName(res.CountryCode)
-	return &response
-	}
+	
 	
 	
 
