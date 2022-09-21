@@ -40,6 +40,7 @@ type VerifyResponse struct {
 	StatusCode  int
 	CountryCode string
 	CountryName string
+        err         error
 }
 
 type UnblockTestResult struct {
